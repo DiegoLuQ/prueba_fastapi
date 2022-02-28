@@ -1,0 +1,65 @@
+{% include 'header.html' %}
+{% include 'nav.html' %}
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="table-responsive-sm">
+                <table class="table table-sm ">
+                    <thead>
+                        <tr>
+                            {% for i in result[0] %}
+                            <th scope="col" class="">{{i}}</th>
+                            {% endfor %}
+                        </tr>
+                    </thead>
+                    <tbody id="table_body">
+                        {% for i in result[1] %}
+                        <tr class="tr_tbody">
+                            <td class="barra_0">{{i[0]}}</td>
+                            <td class="barra_1">{{i[1]}}</td>
+                            <td class="barra_2">{{i[2]}}</td>
+                            <td class="barra_3">{{i[3]}}</td>
+                            <!-- <td class="barra_4">{{i[4]}} <div id="madre"><div id="hijo"></div></div></td> -->
+                            <td class="barra_4">{{i[4]}}
+                                <div class="madre">
+                                    <div class="hijo" value="{{i[4]}}" role="progrssbar" aria-valuemin="0" aria-valuemax="100"></div>                             
+                                </div>
+                            </td>
+                            <td class="barra_5">{{i[5]}}
+                                <div class="madre">
+                                    <div class="hijo" value="{{i[5]}}" role="progrssbar" aria-valuemin="0" aria-valuemax="100"></div>                             
+                                </div>
+                            </td>
+                            
+                            <td class="barra_6">{{i[6]}}
+                                <div class="madre">
+                                    <div class="hijo" value="{{i[6]}}" role="progrssbar" aria-valuemin="0" aria-valuemax="100"></div>                             
+                                </div>
+                            </td>
+                            <td class="barra_7">{{i[7]}}
+                                <div class="madre">
+                                    <div class="hijo" value="{{i[7]}}" role="progrssbar" aria-valuemin="0" aria-valuemax="100"></div>                             
+                                </div>
+                            </td>
+                            <td class="barra_8">{{i[8]}}
+                                <div class="madre">
+                                    <div class="hijo" value="{{i[8]}}" role="progrssbar" aria-valuemin="0" aria-valuemax="100"></div>                             
+                                </div>
+                            </td>
+                            <td class="barra_9">{{i[9]}}</td>
+                            <td class="barra_10">{{i[10]}}</td>
+                            <td class="barra_11">{{i[11]}}</td>
+                            <td class="barra_12">{{i[12]}}</td>
+                            
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% include 'footer.html' %}
+
+
