@@ -1,4 +1,7 @@
-from pymongo import MongoClient
+import os
 
-conn = MongoClient('mongodb+srv://diego:diegopass2023@cluster0.8jyya.mongodb.net/santiago_filtros?retryWrites=true&w=majority')
+from pymongo import MongoClient
+from dotenv import load_dotenv
+load_dotenv()
+conn = MongoClient(os.getenv('DATABASE'))
 #conn = MongoClient()
