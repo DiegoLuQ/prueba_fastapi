@@ -29,17 +29,17 @@ async function obtenerDatos(){
                     labels: labels,
                     datasets: [{
                       label: habilidad[0],
-                      backgroundColor: 'red',
+                      backgroundColor: 'rgba(33,218,48,0.8)',
                       data: valores[0],
                     },
                     {
                       label: habilidad[1],
-                      backgroundColor: 'blue',
+                      backgroundColor: 'rgba(218,33,46,0.8)',
                       data: valores[1],
                     },
                     {
                       label: habilidad[2],
-                      backgroundColor: 'green',
+                      backgroundColor: 'rgba(33,198,218,0.8)',
                       data: valores[2],
                     }]
                   };
