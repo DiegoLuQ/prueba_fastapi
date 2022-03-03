@@ -1,5 +1,6 @@
 {% include 'header.html' %}
 {% include 'nav.html' %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
 <div class="container">
     <div class="row">
         <div class="col">
@@ -16,10 +17,22 @@
                         {% for i in result[1] %}
                         <tr class="tr_tbody">
                             <td class="barra_0">{{i[0]}}</td>
-                            <td class="barra_1">{{i[1]}}</td>
-                            <td class="barra_2">{{i[2]}}</td>
-                            <td class="barra_3">{{i[3]}}</td>
-                            <!-- <td class="barra_4">{{i[4]}} <div id="madre"><div id="hijo"></div></div></td> -->
+                            <td class="barra_1">{{i[1]}}
+                                <div class="madre">
+                                    <div class="hijo" value="{{i[1]}}" role="progrssbar" aria-valuemin="0" aria-valuemax="100"></div>                             
+                                </div>
+                            </td>
+                            
+                            <td class="barra_2">{{i[2]}}
+                                <div class="madre">
+                                    <div class="hijo" value="{{i[2]}}" role="progrssbar" aria-valuemin="0" aria-valuemax="100"></div>                             
+                                </div>
+                            </td>
+                            <td class="barra_3">{{i[3]}}
+                                <div class="madre">
+                                    <div class="hijo" value="{{i[3]}}" role="progrssbar" aria-valuemin="0" aria-valuemax="100"></div>                             
+                                </div>
+                            </td>
                             <td class="barra_4">{{i[4]}}
                                 <div class="madre">
                                     <div class="hijo" value="{{i[4]}}" role="progrssbar" aria-valuemin="0" aria-valuemax="100"></div>                             
@@ -58,8 +71,13 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <div class="col">
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
 </div>
-
+<script src="{{url_for('static', path='../static/js/chart.js')}}"></script>
 {% include 'footer.html' %}
 
 

@@ -21,7 +21,7 @@
                         <label for="">Seleccione la opcion que desea ver</label>
                         {% for i in valores[0] %}
                         <div class="form-check">
-                            <input type="radio" name="nombre_hoja" id="nombre_hoja" id="{{i['name']}}" class="form-check-input" checked="checked" value="{{i['sheetname_real']}}">
+                            <input type="radio" name="nombre_hoja" id="{{i['name']}}" class="form-check-input" checked="checked" value="{{i['sheetname_real']}}">
                             <label for="{{i['name']}}">{{i['name']}}</label> 
                         </div>
                         {% endfor %}

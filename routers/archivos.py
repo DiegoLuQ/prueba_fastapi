@@ -5,7 +5,7 @@ from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 import pandas as pd
 import numpy as np
-from models.archivo import Archivo
+from models.archivos import Archivo
 from db import conn
 
 analisis_conn = conn.analisis
@@ -42,6 +42,24 @@ def mostrar_sheet():
     files = analisis_conn['upfile'].find({},{'_id':0})
     consolidado = [sheets, files]
     return consolidado
+
+#creando arrys de datos para el datos_graficos
+def array_datos(nombre_file, nombre_hoja):
+    #obteniendo el archivo necesario para la lectura
+    df = pd.read_excel(io = "static/files/" + nombre_file, sheet_name=nombre_hoja)
+    df_sample= df.set_index('Habilidad')
+    df_sample = df_sample * 100
+    df_sample = round(df_sample, 0)
+    df_sample= df_sample.drop(['MI CURSO'], axis=1)
+    df_valores = df_sample.to_numpy().tolist()
+    
+    consolidado = []
+    cabecera = []
+    for i in df_sample:
+        cabecera.append(i)
+    consolidado = [cabecera, df_valores, list(df['Habilidad'])]
+    return consolidado
+
 """     
 PATHS - GET 
 """
@@ -84,3 +102,8 @@ async def guardar_excel(
     nuevo_archivo = Archivo(nombre_file = archivo.filename, nombre = nombre)
     analisis_conn['upfile'].insert_one(nuevo_archivo.dict()).inserted_id
     return templates.TemplateResponse('index.html', {'request': request, 'result': 'Se subio el archivo con exito'})
+
+@app.get('/datos_graficos')
+async def datos_graficos(nombre_file : str, nombre_hoja: str):
+    result = array_datos(nombre_file, nombre_hoja)
+    return result

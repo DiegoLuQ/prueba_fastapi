@@ -5,7 +5,7 @@ from fastapi import FastAPI, Request
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
 
-from models.archivo import Archivo
+from models.archivos import Archivo
 from db import conn
 from routers import archivos
 
