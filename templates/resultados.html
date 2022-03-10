@@ -1,11 +1,11 @@
 {% include 'header.html' %}
 {% include 'nav.html' %}
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.7.1/dist/chart.min.js"></script>
-<div class="container">
+<div class="container mt-2">
     <div class="row">
         <div class="col">
             <div class="table-responsive-sm">
-                <table class="table table-sm ">
+                <table class="table table-sm table-dark table-hover text-white">
                     <thead>
                         <tr>
                             {% for i in result[0] %}
@@ -71,11 +71,10 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col">
-            <canvas id="myChart" class="col-12 col-md-9"></canvas>
-        </div>
+    <div class="col-12" style="height:50vh; width:90vw">
+        <canvas id="myChart"></canvas>
     </div>
+    
 </div>
 <script src="{{url_for('static', path='../static/js/chart.js')}}"></script>
 {% include 'footer.html' %}

@@ -47,7 +47,36 @@ async function obtenerDatos(){
                   const config = {
                     type: 'bar',
                     data: data,
-                    options: {}
+                    options: {
+                      responsive:true,
+                      maintainAspectRatio:false,
+                      plugins: {
+                        legend: {
+                          display:true,
+                          labels: {
+                            color:'#fff'
+                          }
+                        }
+                      },
+                      scales: {
+                        y:{
+                          ticks: {
+                            major: {
+                              enabled: true
+                            },
+                            color:'#fff',
+                          }
+                        },
+                        x:{
+                          ticks: {
+                            major: {
+                              enabled: true
+                            },
+                            color:'#fff',
+                          }
+                        }
+                      }
+                    }
                   };
                   if (myChart) {
                     myChart.destroy();
@@ -57,11 +86,6 @@ async function obtenerDatos(){
             } catch (error) {
                 console.log(error)
             }
-            // console.log(respuesta)
-            // console.log(respuesta['Literario lírico: Poema'])
-            // console.log(respuesta['Literario lírico: Poema']['Localizar información'])
-            //console.log(Object.keys(respuesta))
-            //for( let i = 0; i>)
             break;
     
         default:
