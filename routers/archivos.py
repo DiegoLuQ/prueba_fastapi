@@ -1,8 +1,9 @@
-from os import getcwd
+from os import getcwd, listdir
 
 from fastapi import APIRouter, FastAPI, Request, File, UploadFile, Form
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 import pandas as pd
 import numpy as np
 from models.archivos import Archivo
@@ -107,3 +108,31 @@ async def guardar_excel(
 async def datos_graficos(nombre_file : str, nombre_hoja: str):
     result = array_datos(nombre_file, nombre_hoja)
     return result
+
+@app.get(
+    path='/descargar/archivos',
+    tags=['Descargar PDF, EXCEL, ETC'])
+async def descargar_archivos_formato(request: Request):
+    return templates.TemplateResponse('archivos.html', {'request': request, 'title':'Descarga de Archivos'})
+
+
+@app.get(
+    path='/file/leer/{name_file}',
+    tags=['Descargar PDF, EXCEL, ETC'])
+async def leer_archivo(name_file : str):
+
+    return FileResponse(PATH_FILES + name_file)
+    #ANALISIS_SEMANA_4.pdf
+
+@app.get(
+    path='/file/descargar/{name_file}',
+    tags=['Descargar PDF, EXCEL, ETC'])
+async def descargar_archivo(name_file : str):
+
+    return FileResponse(PATH_FILES + name_file, media_type='application/octet-stream', filename=name_file)
+    #ANALISIS_SEMANA_4.pdf
+
+@app.get('/file/listar')
+async def listar_archivos():
+    contenido = listdir(PATH_FILES)
+    return (contenido)

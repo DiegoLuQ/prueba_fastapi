@@ -10,11 +10,11 @@ addEventListeners()
 
 async function obtenerDatos(){
     switch (enlace) {
-        //case 'http://127.0.0.1:8000/analisis/leer_archivos_excel?nombre_file=pruebas2022.xlsx&nombre_hoja=DSContHabilidadPreguntas':
-        case 'https://pruebafastapi1.herokuapp.com/analisis/leer_archivos_excel?nombre_file=pruebas2022.xlsx&nombre_hoja=DSContHabilidadPreguntas':
+        case 'http://127.0.0.1:8000/analisis/leer_archivos_excel?nombre_file=pruebas2022.xlsx&nombre_hoja=DSContHabilidadPreguntas':
+        //case 'https://pruebafastapi1.herokuapp.com/analisis/leer_archivos_excel?nombre_file=pruebas2022.xlsx&nombre_hoja=DSContHabilidadPreguntas':
             try {
-              //const resultado = await fetch('http://127.0.0.1:8000/analisis/datos_graficos?nombre_file=pruebas2022.xlsx&nombre_hoja=DSContHabilidadPreguntas')
-              const resultado = await fetch('https://pruebafastapi1.herokuapp.com/analisis/datos_graficos?nombre_file=pruebas2022.xlsx&nombre_hoja=DSContHabilidadPreguntas')
+              const resultado = await fetch('http://127.0.0.1:8000/analisis/datos_graficos?nombre_file=pruebas2022.xlsx&nombre_hoja=DSContHabilidadPreguntas')
+              //const resultado = await fetch('https://pruebafastapi1.herokuapp.com/analisis/datos_graficos?nombre_file=pruebas2022.xlsx&nombre_hoja=DSContHabilidadPreguntas')
                 
                 const respuesta = await resultado.json()
                 console.log(respuesta)
