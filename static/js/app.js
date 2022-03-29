@@ -30,8 +30,8 @@ function agregando_porcentaje(){
 
     switch(enlace) {
         
-        case 'http://127.0.0.1:8000/analisis/leer_archivos_excel?nombre_file=pruebas2022.xlsx&nombre_hoja=DSResultados':
-        //case 'https://pruebafastapi1.herokuapp.com/analisis/leer_archivos_excel?nombre_file=pruebas2022.xlsx&nombre_hoja=DSResultados':
+        //case 'http://127.0.0.1:8000/analisis/leer_archivos_excel?nombre_file=pruebas2022.xlsx&nombre_hoja=DSResultados':
+        case 'https://pruebafastapi1.herokuapp.com/analisis/leer_archivos_excel?nombre_file=pruebas2022.xlsx&nombre_hoja=DSResultados':
             
             console.log('estamos en DSResultados')
             tr_tbody.forEach(x => {
@@ -73,8 +73,8 @@ function agregando_porcentaje(){
                 x.children[0].remove()
             })
             break;
-            case 'http://127.0.0.1:8000/analisis/leer_archivos_excel?nombre_file=pruebas2022.xlsx&nombre_hoja=DSPorcentajePregunta':
-            //case 'https://pruebafastapi1.herokuapp.com/analisis/leer_archivos_excel?nombre_file=pruebas2022.xlsx&nombre_hoja=DSPorcentajePregunta':
+            //case 'http://127.0.0.1:8000/analisis/leer_archivos_excel?nombre_file=pruebas2022.xlsx&nombre_hoja=DSPorcentajePregunta':
+            case 'https://pruebafastapi1.herokuapp.com/analisis/leer_archivos_excel?nombre_file=pruebas2022.xlsx&nombre_hoja=DSPorcentajePregunta':
                 console.log('estamos en DSPorcentajePregunta')
                 //tr_tbody.removeChild(tr_tbody.children[10])
                 tr_tbody.forEach(x => {
@@ -120,8 +120,8 @@ function agregando_porcentaje(){
                     x.children[0].remove()
                 })
                 break;
-                case 'http://127.0.0.1:8000/analisis/leer_archivos_excel?nombre_file=pruebas2022.xlsx&nombre_hoja=DSContHabilidadPreguntas':
-                //case 'https://pruebafastapi1.herokuapp.com/analisis/leer_archivos_excel?nombre_file=pruebas2022.xlsx&nombre_hoja=DSContHabilidadPreguntas':
+                //case 'http://127.0.0.1:8000/analisis/leer_archivos_excel?nombre_file=pruebas2022.xlsx&nombre_hoja=DSContHabilidadPreguntas':
+                case 'https://pruebafastapi1.herokuapp.com/analisis/leer_archivos_excel?nombre_file=pruebas2022.xlsx&nombre_hoja=DSContHabilidadPreguntas':
                 console.log('estamos en DSContHabilidadPreguntas')
                 //tr_tbody.removeChild(tr_tbody.children[10])
                 tr_tbody.forEach(x => {

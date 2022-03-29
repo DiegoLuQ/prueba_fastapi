@@ -1,14 +1,21 @@
+*{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
+    list-style: none;
+    text-decoration: none;
+}
 body {
     padding: 0;
     margin:0;
     text-decoration: none;
-    background: rgb(4, 116, 91);
+    background: rgb(107, 107, 107);
     color:white;
 }
 .parrafo {
     color: rgb(4, 110, 93);
 }
 nav {
-    background:rgb(255, 187, 0);
+    background:rgb(8, 0, 119);
 
 }

@@ -110,14 +110,7 @@ async def datos_graficos(nombre_file : str, nombre_hoja: str):
     return result
 
 @app.get(
-    path='/descargar/archivos',
-    tags=['Descargar PDF, EXCEL, ETC'])
-async def descargar_archivos_formato(request: Request):
-    return templates.TemplateResponse('archivos.html', {'request': request, 'title':'Descarga de Archivos'})
-
-
-@app.get(
-    path='/file/leer/{name_file}',
+    path='/file/ver/{name_file}',
     tags=['Descargar PDF, EXCEL, ETC'])
 async def leer_archivo(name_file : str):
 
@@ -132,7 +125,7 @@ async def descargar_archivo(name_file : str):
     return FileResponse(PATH_FILES + name_file, media_type='application/octet-stream', filename=name_file)
     #ANALISIS_SEMANA_4.pdf
 
-@app.get('/file/listar')
-async def listar_archivos():
+@app.get('/file/archivos')
+async def listar_archivos(request: Request):
     contenido = listdir(PATH_FILES)
-    return (contenido)
+    return templates.TemplateResponse('archivos.html', {'request': request, 'contenido':contenido})

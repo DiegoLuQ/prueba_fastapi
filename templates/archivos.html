@@ -2,5 +2,47 @@
 {% include 'nav.html' %}
 <div class="container">
     <h1>{{title}}</h1>
+    <div class="row ">
+        <div class="col-12 archivo_buscar d-md-flex gap-3 flex-colum">
+            <div class="col-12 col-md-3">
+                <input type="text" class="form-control" placeholder="Buscar por nombre archivo">
+            </div>
+            <div class="col-12 col-md-3 mt-2 mt-md-0">
+                <input type="text" class="form-control" placeholder="Buscar por contenido">
+            </div>
+            <div class="col-12 col-md-3 mt-2 mt-md-0">
+                <select name="" id="" class="form-select">
+                    <option value="">Buscar por año</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                    <option value="2019">2019</option>
+                    
+                </select>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="table-responsive-sm">
+            <table class="table table-responsive table-dark table-hover table-striped align-middle my-2">
+                <thead>
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col" class="">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in contenido %}
+                    <tr class="">
+                        <td class="text-small text-lowercase">{{i}}</td>
+                        <td class=""><a href="/analisis/file/descargar/{{i}}" class="btn btn-primary me-2 my-2 my-md-0 btn-sm d-none d-md-inline">Descargar</a><a href="/analisis/file/ver/{{i}}" class="btn btn-success btn-sm" target="_blank">Ver</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
 </div>
 {% include 'footer.html' %}
