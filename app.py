@@ -7,12 +7,12 @@ from fastapi.staticfiles import StaticFiles
 
 from models.archivos import Archivo
 from db import conn
-from routers import archivos
+from routers import archivos, presupuesto
 
 app = FastAPI()
 
 app.include_router(archivos.app)
-
+app.include_router(presupuesto.router)
 templates = Jinja2Templates(directory='templates')
 app.mount('/static', StaticFiles(directory='static'), name='static')
 
