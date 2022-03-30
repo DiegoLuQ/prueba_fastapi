@@ -1,6 +1,6 @@
 console.log('hola desde pre_sep')
 
-const url = "http://127.0.0.1:8000/presupuesto/ruta/leer_datos"
+const url = "https://pruebafastapi1.herokuapp.com/presupuesto/ruta/leer_datos"
 const tablePME = document.querySelector('#table-pme')
 
 cargarAddEventListener()
