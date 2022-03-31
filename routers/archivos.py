@@ -20,6 +20,8 @@ app.mount('/static', StaticFiles(directory='static'), name='static')
 
 #Upload Files
 PATH_FILES = getcwd() + "/static/files/"
+PATH_FILES2 = getcwd() + "/static/db/"
+
 """
 FUNCIONES
 """
@@ -96,7 +98,7 @@ async def guardar_excel(
     request: Request, 
     archivo: UploadFile = File(...),
     nombre: str = Form(...)):
-    with open(PATH_FILES + archivo.filename, 'wb') as myfile:
+    with open(PATH_FILES2 + archivo.filename, 'wb') as myfile:
         content = await archivo.read()
         myfile.write(content)
         myfile.close()

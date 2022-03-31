@@ -2,6 +2,7 @@ from os import getcwd
 from fastapi import APIRouter, Request
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
+from fastapi.responses import FileResponse
 from db import conn
 import pandas as pd
 import numpy as np
@@ -11,6 +12,7 @@ router = APIRouter(
     responses={404:{'description': 'Not Found'}}
 )
 PATH_FILE = getcwd() + '/static/db/'
+PATH_FILES2 = getcwd() + "/static/files/"
 
 templates = Jinja2Templates(directory='templates')
 router.mount('/static', StaticFiles(directory='static'), name='static')
@@ -35,3 +37,6 @@ async def ruta():
     return results
 
 
+@router.get(path='/pme/lee/{fact_req}', tags=['Leer Archivos PDF'])
+async def leer_fact_req(fact_req: str):
+    return FileResponse(PATH_FILES2 + fact_req +'.pdf')

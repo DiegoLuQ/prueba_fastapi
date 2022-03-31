@@ -3,21 +3,22 @@
 
 <div class="container-fluid">
     <h1 class="text-center my-2">{{title}}</h1>
-    <div class="row my-2">
+    <div class="row my-2" id="buscador">
         <div class="col-12 col-md-3">
-            <input type="text" class="form-control" placeholder="Buscar por dimension">
+            <input type="text" class="form-control" id="accion" placeholder="Buscar por accion">
         </div>
         <div class="col-12 col-md-3">
-            <input type="text" class="form-control" placeholder="Buscar por presentacion">
+            <input type="text" class="form-control" id="descripcion" placeholder="Buscar por descripcion">
     
         </div>
     </div>
     <div class="table-responsive">
-        <table class="table table-dark table-hover table-stripped align-middle">
+        <table class="table table-dark table-hover table-striped align-middle">
             <thead class="align-middle">
                 <tr>
                     <th>Dimensión</th>
                     <th>Subdimensión</th>
+                    <th>Acción</th>
                     <th>Responsable</th>
                     <th>Area</th>
                     <th>Descripcion</th>
@@ -25,9 +26,12 @@
                     <th>Mes de Compra</th>
                     <th>Fecha de Actividad</th>
                     <th>Motivo de Actividad</th>
+                    <th>Fact</th>
+                    <th>Req</th>
+                    <th>Ver</th>
                 </tr>
             </thead>
-            <tbody id="table-pme">
+            <tbody id="table-pme" id="table-pme">
                 
             </tbody>
         </table>

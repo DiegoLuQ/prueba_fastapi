@@ -12,17 +12,17 @@
         </div>
         <div class="row">
             <div class="col">
-                <form class="mb-3" id="formulario" method="post">
+                <form action="/analisis/guardar_excel" class="mb-3" id="formulario" method="post" enctype="multipart/form-data">
                     <label for="archivo" class="form-label" >Small file input example</label>
                     <input class="form-control form-control-sm" id="archivo" name="archivo" type="file">
                     <div>
                         <label class="form-label mt-2" for="nombre">Descripcion de Archivo</label>
-                        <input class="form-control" type="text" name="nombre">
+                        <input class="form-control" type="text" name="nombre" id="nombre">
                     </div>
                     <button type="submit" class="btn btn-primary mt-3">Subir Archivo</button>
 
                 </form>
-                <p class="display-6 fw-bold text-success"> {{result}} </p>
+                <p class="display-6 fw-bold text-warning"> {{result}} </p>
             </div>
         </div>
     </div>
