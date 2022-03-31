@@ -109,7 +109,6 @@ buscador.addEventListener('keyup', e => {
     datosBusqueda[e.target.id] = e.target.value.toLowerCase();
     console.log(datosBusqueda)
     filtrarAccionPME()
-    filtrarDescripcionPME()
 })
 
 function limpiarHTML(){
@@ -119,7 +118,7 @@ function limpiarHTML(){
 }
 
 function filtrarAccionPME(){
-    const {accion, descripcion} = datosBusqueda;
+    const {accion} = datosBusqueda;
     const lista = [];
     try {
         for(let item of datos){
@@ -127,26 +126,8 @@ function filtrarAccionPME(){
             if(accion_pme.indexOf(accion) >= 0){
                 lista.push(item)
             }
-            
         }
         generarTabla(lista)
     } catch (error) {
-        
-    }
-}
-function filtrarDescripcionPME(){
-    const {accion, descripcion} = datosBusqueda;
-    const lista = [];
-    try {
-        for(let item of datos){
-            let descripcion_pme = item.descripcion.toLowerCase()
-            if(descripcion_pme.indexOf(descripcion) >= 0){
-                lista.push(item)
-            }
-            
-        }
-        generarTabla(lista)
-    } catch (error) {
-        
     }
 }
