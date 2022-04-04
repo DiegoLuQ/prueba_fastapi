@@ -31,7 +31,7 @@ function generarTabla(datos){
 
         const tdDimension = document.createElement('td')
         const tdSubdimensión = document.createElement('td')
-        const tdResponsable = document.createElement('td')
+        //const tdResponsable = document.createElement('td')
         const tdAccion = document.createElement('td')
         
         const tdArea = document.createElement('td')
@@ -46,18 +46,25 @@ function generarTabla(datos){
         
         const tdButtonFactura = document.createElement('a')
         const tdButtonRequerimiento = document.createElement('a')
+        const tdButtonCertificado = document.createElement('a')
         
-        tdButtonFactura.classList.add('btn', 'btn-success', 'my-2')
+        tdButtonFactura.classList.add('btn', 'btn-success')
         tdButtonFactura.setAttribute('target', '_blank')
         tdButtonFactura.href = "/presupuesto/pme/lee/" + fact
 
         tdButtonRequerimiento.setAttribute('target', '_blank')
         tdButtonRequerimiento.href = "/presupuesto/pme/lee/" + req
+        tdButtonRequerimiento.classList.add('btn', 'btn-primary', 'my-2')
 
-        tdButtonRequerimiento.classList.add('btn', 'btn-primary')
+        tdButtonCertificado.setAttribute('target', '_blank')
+        tdButtonCertificado.href = "/presupuesto/pme/lee/" + req
+        tdButtonCertificado.classList.add('btn', 'btn-warning')
+
+
+
         tdDimension.textContent = dimension
         tdSubdimensión.textContent = subdimension
-        tdResponsable.textContent = responsable
+        //tdResponsable.textContent = responsable
         tdAccion.textContent = accion
         tdFact.textContent = fact
         tdReq.textContent = req
@@ -71,16 +78,18 @@ function generarTabla(datos){
         
         tdButtonFactura.textContent = "Factura"
         tdButtonRequerimiento.textContent = "Requerimiento"
+        tdButtonCertificado.textContent = "Certificado"
         
 
 
         tdContentbtn.appendChild(tdButtonFactura)
         tdContentbtn.appendChild(tdButtonRequerimiento)
+        tdContentbtn.appendChild(tdButtonCertificado)
         
         trPadre.appendChild(tdDimension)
         trPadre.appendChild(tdSubdimensión)
         trPadre.appendChild(tdAccion)
-        trPadre.appendChild(tdResponsable)
+        //trPadre.appendChild(tdResponsable)
         trPadre.appendChild(tdArea)
         
         trPadre.appendChild(tdDescripcion)
@@ -128,6 +137,21 @@ function filtrarAccionPME(){
             }
         }
         generarTabla(lista)
+    } catch (error) {
+    }
+}
+
+function filtrarDescripcionPME(){
+    const {descripcion} = datosBusqueda;
+    const lista2 = [];
+    try {
+        for(let item of datos){
+            let descripcion_pme = item.descripcion.toLowerCase()
+            if(descripcion_pme.indexOf(descripcion) >= 0){
+                lista2.push(item)
+            }
+        }
+        generarTabla(lista2)
     } catch (error) {
     }
 }

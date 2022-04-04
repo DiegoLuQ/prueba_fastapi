@@ -29,7 +29,7 @@ def leer_excel():
 
 @router.get('/pre_sep')
 async def pre_sep(request: Request):
-    return templates.TemplateResponse('sep_presupuesto.html', {'request': request, 'title':'Datos PME'})
+    return templates.TemplateResponse('sep_presupuesto.html', {'request': request, 'title':'Datos PME Macaya'})
 
 @router.get('/ruta/leer_datos')
 async def ruta():
