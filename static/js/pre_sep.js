@@ -31,7 +31,7 @@ function generarTabla(datos){
 
         const tdDimension = document.createElement('td')
         const tdSubdimensión = document.createElement('td')
-        //const tdResponsable = document.createElement('td')
+        const tdResponsable = document.createElement('td')
         const tdAccion = document.createElement('td')
         
         const tdArea = document.createElement('td')
@@ -48,6 +48,8 @@ function generarTabla(datos){
         const tdButtonRequerimiento = document.createElement('a')
         const tdButtonCertificado = document.createElement('a')
         
+        tdResponsable.classList.add('d-none')
+
         tdButtonFactura.classList.add('btn', 'btn-success')
         tdButtonFactura.setAttribute('target', '_blank')
         tdButtonFactura.href = "/presupuesto/pme/lee/" + fact
@@ -57,14 +59,14 @@ function generarTabla(datos){
         tdButtonRequerimiento.classList.add('btn', 'btn-primary', 'my-2')
 
         tdButtonCertificado.setAttribute('target', '_blank')
-        tdButtonCertificado.href = "/presupuesto/pme/lee/" + req
+        tdButtonCertificado.href = "/presupuesto/pme/lee/" + fact
         tdButtonCertificado.classList.add('btn', 'btn-warning')
 
 
 
         tdDimension.textContent = dimension
         tdSubdimensión.textContent = subdimension
-        //tdResponsable.textContent = responsable
+        tdResponsable.textContent = responsable
         tdAccion.textContent = accion
         tdFact.textContent = fact
         tdReq.textContent = req
@@ -89,7 +91,7 @@ function generarTabla(datos){
         trPadre.appendChild(tdDimension)
         trPadre.appendChild(tdSubdimensión)
         trPadre.appendChild(tdAccion)
-        //trPadre.appendChild(tdResponsable)
+        trPadre.appendChild(tdResponsable)
         trPadre.appendChild(tdArea)
         
         trPadre.appendChild(tdDescripcion)
@@ -137,21 +139,6 @@ function filtrarAccionPME(){
             }
         }
         generarTabla(lista)
-    } catch (error) {
-    }
-}
-
-function filtrarDescripcionPME(){
-    const {descripcion} = datosBusqueda;
-    const lista2 = [];
-    try {
-        for(let item of datos){
-            let descripcion_pme = item.descripcion.toLowerCase()
-            if(descripcion_pme.indexOf(descripcion) >= 0){
-                lista2.push(item)
-            }
-        }
-        generarTabla(lista2)
     } catch (error) {
     }
 }
